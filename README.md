@@ -31,3 +31,10 @@ As an Admin, I want to:
 - Reviews and approves parent-submitted task suggestions
 - Controls which tasks appear in the public task library
 
+## Wireframes
+
+Low-fidelity, hand-drawn wireframes were created during the planning phase to map out: Home page layout, parent dashboard, task management flow, sticker reward views and mobile adaptations.
+Wireframes were intentionally kept low-fidelity to focus on structure and user flow rather than visual styling.
+
+
+
