@@ -9,8 +9,10 @@ class Task(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE,related_name="blog_posts"
         )
+    age_group = models.CharField(max_length=20)
     description = models.TextField(blank=True)
     benefits = models.TextField(blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     updated_on = models.DateTimeField(auto_now=True)
+    
