@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 mt-3">
+
+        {% regroup task_list by age_group as grouped_tasks %}
+
+        {% for group in grouped_tasks %}
+          <h2 class="mt-4">
+            {% if group.grouper == 1 %}Appropriate chores for ages 3–5{% endif %}
+            {% if group.grouper == 2 %}Appropriate chores for ages 6–8{% endif %}
+            {% if group.grouper == 3 %}Appropriate chores for ages 9–11{% endif %}
+            {% if group.grouper == 4 %}Appropriate chores for ages 12+{% endif %}
+          </h2>
+
+        <div class="row">
+          {% for task in group.list %}
+            <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">{{ task.title }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ task.description }}</h6>
+                  <p class="card-text">{{ task.benefits }}</p>
+                </div>
+              </div>
+            </div>
+          {% empty %}
+            <p class="text-muted">No tasks available for this age group yet.</p>
+          {% endfor %}
+        </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

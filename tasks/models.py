@@ -4,10 +4,10 @@ from django.contrib.auth.models import User # Import models to connect
 # Create your models here.
 
 AGE_GROUP_CHOICES = [
-    ("3-5", "Ages 3–5"),
-    ("6-8", "Ages 6–8"),
-    ("9-11", "Ages 9–11"),
-    ("12+", "Ages 12+"),
+    (1, "Ages 3–5"),
+    (2, "Ages 6–8"),
+    (3, "Ages 9–11"),
+    (4, "Ages 12+"),
 ]
 
 STATUS = ((0, "Unapproved"), (1, "Approved"))
@@ -16,8 +16,7 @@ class Task(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE,related_name="admin_tasks"
         )
-    age_group = models.CharField(
-        max_length=20,
+    age_group = models.PositiveSmallIntegerField(
         choices=AGE_GROUP_CHOICES
         )
     description = models.TextField(blank=True)

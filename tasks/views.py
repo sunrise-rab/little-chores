@@ -4,6 +4,10 @@ from .models import Task
 
 # Create your views here.
 class TaskList(generic.ListView):
-    queryset = Task.objects.all().filter(status=1)
-    template_name = "task_list.html"
+    queryset = Task.objects.all().filter(status=1).order_by("age_group")
+    template_name = "tasks/index.html"
+    context_object_name = "task_list"
+
+
+    
 
