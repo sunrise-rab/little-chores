@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* ---------- COLOURS & FONTS ---------- */
+:root {
+  --soft-cream: #F3E2F3;
+  --snow-white: #ffffff;
+  --calm-sky-blue: #6C9BCF;
+  --soft-growth-green: #8BC8A5;
+  --soft-yellow: #F4C430;
+  --charcoal-text: #2F3A44;
+  --brand-purple: #AF31AF;
+  --heading-font: "Baloo 2", cursive;
+  --body-font: "Poppins", sans-serif;
+}
+
+/* Headings */
+h1, h2, h3, h4, nav {
+  font-family: var(--heading-font);
+}
+
+/* Body text uses Poppins */
+body, p, button, input, label, textarea {
+  font-family: var(--body-font);
+  color: var(--charcoal-text);
+  margin: 0;
+}
+
+/* Layout */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-lg {
+  background-color: var(--soft-cream);
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar-lg {
+  background-color: var(--brand-purple);
+  color: var(--snow-white);
+}
+#navbarText ul li a{
+    text-decoration: none;
+    color: var(--snow-white);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#navbarText ul li a:hover{
+    text-decoration: none;
+    color: var(--soft-yellow);
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+}
+
+.small-logo {
+  font-size: 1.5rem;
+  color: var(--snow-white);
+}
+
+.big {
+  font-size: 2.5rem;
+  color: var(--snow-white);
+  margin-right: 0.5rem;
+}
+
+/* Cards */
+.card {
+  border: none;
+  background-color: var(--snow-white);
+}
+
+/* Task section heading*/
+.task-title {
+  color:var(--brand-purple);       
+  margin: 2rem 0 1rem;
+}
+
+/* Task text */
+.description , .benefits{
+  font-size: 1rem;
+  color: var(--charcoal-text)
+}
+.title{
+    padding-left: 5px;
+    font-weight: bold;
+    color: var(--charcoal-text);
+}
+
+#task-list i{
+color: var(--soft-yellow);
+}
+
+.card-title{
+    color: var(--calm-sky-blue);
+    font-weight: bold;
+}
+#task-list .card{
+border-radius: 2%;
+padding: 1rem;
+}
+.more-button, .more-button button{
+    background-color: var(--snow-white);
+    color: var(--brand-purple);
+    font-size: 1rem;
+    border-radius: 5%;
+    text-align: center;
+
+}
