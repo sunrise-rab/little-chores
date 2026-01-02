@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'tasks',
     'django_summernote',
+    'dashboard',
 ]
 
 CSRF_TRUSTED_ORIGINS = [

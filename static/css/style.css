@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* ---------- COLOURS & FONTS ---------- */
+/* Colours and fonts*/
 :root {
   --soft-cream: #F3E2F3;
   --snow-white: #ffffff;
-  --calm-sky-blue: #6C9BCF;
-  --soft-growth-green: #8BC8A5;
+  --calm-sky-blue: #519EF6;
+  --soft-growth-green: #16B690;
   --soft-yellow: #F4C430;
   --charcoal-text: #2F3A44;
-  --brand-purple: #AF31AF;
+  --brand-purple: #B045B0;
   --heading-font: "Baloo 2", cursive;
   --body-font: "Poppins", sans-serif;
 }
