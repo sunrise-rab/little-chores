@@ -21,6 +21,7 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("tasks.urls"), name="tasks-urls"),
+    path("accounts/", include("allauth.urls")),
     path("dashboard/", include("dashboard.urls")),
     path('summernote/', include('django_summernote.urls')),
 ]

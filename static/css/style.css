@@ -22,7 +22,7 @@ h1, h2, h3, h4, nav {
 body, p, button, input, label, textarea {
   font-family: var(--body-font);
   color: var(--charcoal-text);
-  margin: 0;
+  
 }
 
 /* Layout */
@@ -79,10 +79,10 @@ body {
   margin: 2rem 0 1rem;
 }
 
-/* Task text */
+/* Task text styles */
 .description , .benefits{
   font-size: 1rem;
-  color: var(--charcoal-text)
+  color: var(--charcoal-text);
 }
 .title{
     padding-left: 5px;
@@ -99,7 +99,7 @@ color: var(--soft-yellow);
     font-weight: bold;
 }
 #task-list .card{
-border-radius: 2%;
+border-radius: 3%;
 padding: 1rem;
 }
 .more-button, .more-button button{
@@ -110,3 +110,169 @@ padding: 1rem;
     text-align: center;
 
 }
+
+/* Dashboard app styles */
+#dashboard-wrapper {
+    background-color: white; 
+    border-radius: 2%;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Heading */
+
+  .task-title span {
+    display: block;
+    font-size: 1.5rem;
+    color: #2F3A44;
+    margin-top: 0.3rem;
+  }
+
+  /* Card base styling */
+  .dashboard-card {
+    border-radius: 18px;
+    border: none;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .dashboard-card:hover {
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  }
+
+  .dashboard-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .dashboard-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dashboard-card p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Individual card colours */
+  .card-children {
+    background-color: #B045B0;
+    color: #ffffff;
+  }
+
+  .card-children .dashboard-icon {
+    color: #F4C430;
+  }
+
+  .card-chores {
+    background: #519EF6;
+    color: #ffffff;
+  }
+
+  .card-chores .dashboard-icon {
+    color: #F4C430;
+  }
+
+  .card-complete {
+    background-color: #16B690;
+    color: #ffffff;
+  }
+
+  .card-complete .dashboard-icon {
+    color: #F4C430;
+  }
+
+  .card-rewards {
+    background-color: #F4C430;
+    color: #2F3A44;
+  }
+
+  .card-rewards .dashboard-icon {
+    color: #B045B0;
+  }
+
+  /* Buttons */
+  .dashboard-btn {
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+  }
+
+  .dashboard-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+  }
+
+  .btn-white-pill {
+    background-color: #ffffff;
+    color: #2F3A44;
+  }
+
+  .btn-white-pill:hover {
+    background-color: #F9FAF7;
+  }
+
+  .btn-purple-pill {
+    background-color: #B045B0;
+    color: #ffffff;
+  }
+
+  .btn-purple-pill:hover {
+    background-color: #B045B0;
+  }
+
+  .dashboard-actions .dashboard-btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  /* Forms styles */
+  form input,
+  form select,
+  form textarea {
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 8px;
+    padding: 0.6rem;
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  form input:focus,
+  form textarea:focus,
+  form select:focus {
+    outline: none;
+    border-color: var(--brand-purple);
+    box-shadow: 0 0 0 3px rgba(176, 69, 176, 0.2);
+  }
+  .auth-form input[type="checkbox"]{
+      width: auto;
+      margin-right: 0.5rem;
+  }
+  
+  /* Buttons styles */
+  form button,
+  form input[type="submit"] {
+    background-color: var(--brand-purple);
+    border: none;
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+  
+  form button:hover,
+  form input[type="submit"]:hover {
+    background-color: var(--soft-yellow);
+    color: var(--charcoal-text);
+    transition: 0.2s ease-in-out;
+  }
+
+  
