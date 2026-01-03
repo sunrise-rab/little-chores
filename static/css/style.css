@@ -113,7 +113,7 @@ padding: 1rem;
 
 /* Dashboard app styles */
 #dashboard-wrapper {
-    background-color: white; 
+    background-color:var(--snow-white); 
     border-radius: 2%;
     padding: 2rem 1.5rem;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -124,7 +124,7 @@ padding: 1rem;
   .task-title span {
     display: block;
     font-size: 1.5rem;
-    color: #2F3A44;
+    color: var(--charcoal-text);
     margin-top: 0.3rem;
   }
 
@@ -159,39 +159,39 @@ padding: 1rem;
 
   /* Individual card colours */
   .card-children {
-    background-color: #B045B0;
-    color: #ffffff;
+    background-color: var(--brand-purple);
+    color: var(--body-font);
   }
 
   .card-children .dashboard-icon {
-    color: #F4C430;
+    color: var(--soft-yellow);
   }
 
   .card-chores {
-    background: #519EF6;
-    color: #ffffff;
+    background: var(--calm-sky-blue);
+    color: var(--snow-white);
   }
 
   .card-chores .dashboard-icon {
-    color: #F4C430;
+    color: var(--soft-yellow);
   }
 
   .card-complete {
-    background-color: #16B690;
-    color: #ffffff;
+    background-color: var(--soft-growth-green);
+    color: var(--snow-white);
   }
 
   .card-complete .dashboard-icon {
-    color: #F4C430;
+    color: var(--soft-yellow);
   }
 
   .card-rewards {
-    background-color: #F4C430;
-    color: #2F3A44;
+    background-color: var(--soft-yellow);
+    color: var(--charcoal-text);
   }
 
   .card-rewards .dashboard-icon {
-    color: #B045B0;
+    color: var(--brand-purple);
   }
 
   /* Buttons */
@@ -211,21 +211,21 @@ padding: 1rem;
   }
 
   .btn-white-pill {
-    background-color: #ffffff;
-    color: #2F3A44;
+    background-color: var(--snow-white);
+    color: var(--charcoal-text);
   }
 
   .btn-white-pill:hover {
-    background-color: #F9FAF7;
+    background-color: var(--snow-white);
   }
 
   .btn-purple-pill {
-    background-color: #B045B0;
-    color: #ffffff;
+    background-color: var(--brand-purple);
+    color: var(--snow-white);
   }
 
   .btn-purple-pill:hover {
-    background-color: #B045B0;
+    background-color: var(--brand-purple);
   }
 
   .dashboard-actions .dashboard-btn {
@@ -261,7 +261,7 @@ padding: 1rem;
   form input[type="submit"] {
     background-color: var(--brand-purple);
     border: none;
-    color: white;
+    color: var(--snow-white);
     padding: 0.8rem 1.2rem;
     border-radius: 8px;
     font-weight: bold;
