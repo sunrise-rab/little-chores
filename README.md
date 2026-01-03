@@ -60,7 +60,7 @@ I used ![Color Scheme](docs/color-palette.png) to explore harmonious colour comb
 | --soft-growth-green | #16B690 | Dashboard elemets background                                     |
 | --soft-yellow       | #F4C430| Dashboard elemets background                                     |
 | --charcoal-text     | #2F3A44 | Main text colour softer than black for improved readability      |
-| --brand-purple      | #B045B0 | Navbar, footer backgroundcolour                                  |
+| --brand-purple      | #B045B0 | Navbar, footer backgroundcolour and titles                                  |
 
 ### Images
 
