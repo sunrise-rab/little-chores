@@ -75,11 +75,11 @@ My website is responsive to different layouts depending on the size of the viewp
 ![Breakpoints](docs/break-in-point.png)
 
 ### Case Diagram
-![Use Case Diagram](docs/little-chores.png)
+![Use Case Diagram](docs/little_chores.png)
 
 ### Database schema
 
-![Database Schema](docs/little-chores.png)
+![Database Schema](docs/database-schema.png)
 
 
 
