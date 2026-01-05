@@ -162,6 +162,9 @@ padding: 1rem;
     background-color: var(--brand-purple);
     color: var(--body-font);
   }
+  .card-children p{
+    color: var(--snow-white);
+  }
 
   .card-children .dashboard-icon {
     color: var(--soft-yellow);
@@ -258,7 +261,8 @@ padding: 1rem;
   
   /* Buttons styles */
   form button,
-  form input[type="submit"] {
+  form input[type="submit"],
+  .add-child a  {
     background-color: var(--brand-purple);
     border: none;
     color: var(--snow-white);
@@ -266,10 +270,12 @@ padding: 1rem;
     border-radius: 8px;
     font-weight: bold;
     font-size: 1rem;
+    text-decoration: none;
   }
   
   form button:hover,
-  form input[type="submit"]:hover {
+  form input[type="submit"]:hover,
+  .add-child a:hover{
     background-color: var(--soft-yellow);
     color: var(--charcoal-text);
     transition: 0.2s ease-in-out;

@@ -5,10 +5,14 @@
   <div id="dashboard-wrapper">
     <div id="dashboard" class="row gy-4">
       <div class="col-12">
-        <h1 class="task-title h2">
-          Welcome back!
+        {% if user.is_authenticated %}
+        <h1 class="task-title h2 text-center">
+          Welcome back! {{ user }}
           <span>Here you can manage your children, assign chores, and reward stickers.</span>
         </h1>
+        {% else %}
+        <h1 class="task-title h2 text-center"> We are sorry! you are not logged in </h1>
+        {% endif %}
       </div>
 
       <!-- Children + Assign chores -->
@@ -18,10 +22,19 @@
             <div>
               <i class="fas fa-child dashboard-icon"></i>
               <h2>Children</h2>
-              <p>Add your children, see their progress, and celebrate their effort every day.</p>
+              <p >
+                {% if children %}
+                  You have {{ children|length }} child/children:<br>
+                  {% for child in children %}
+                    <strong>{{ child.name|capfirst|linebreaks }}</strong>{% if not forloop.last %} {% endif %}
+                  {% endfor %}
+                {% else %}
+                  Add your first child to get started.
+                {% endif %}
+              </p>
             </div>
             <div>
-              <button class="dashboard-btn btn-white-pill">
+              <button class="dashboard-btn btn-white-pill" onclick="window.location.href='{% url 'dashboard:add_child' %}'">
                 <i class="fas fa-user-plus me-1"></i>
                 Add Child
               </button>

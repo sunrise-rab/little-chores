@@ -1,6 +1,6 @@
 {% load static %}
 {% url 'home' as home_url %}
-{% url 'dashboard' as dashboard_url %}
+{% url 'dashboard:dashboard' as dashboard_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
@@ -26,14 +26,14 @@
 <body>
 
 <header>
-  <nav class="navbar navbar-expand-lg navbar-lg">
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-lg">
     <div class="container">
       <a class="navbar-brand" href="{{ home_url }}">
         <span class="big">Little</span><span class="small-logo">Chores</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-              aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse ms-auto" id="navbarText">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -41,11 +41,11 @@
             <a class="nav-link {% if request.path == home_url %}active{% endif %}"
                aria-current="page" href="{{ home_url }}">Home</a>
           </li>
+          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link {% if request.path == dashboard_url %}active{% endif %}"
                aria-current="page" href="{{dashboard_url}}">Dashboard</a>
           </li>
-          {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page" 
             href="{{ logout_url }}">Logout</a>
