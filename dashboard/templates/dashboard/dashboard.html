@@ -19,22 +19,36 @@
       <div id="assign-task" class="row mt-2 gy-4">
         <div class="col-md-5">
           <div class="dashboard-card card-children">
-            <div>
               <i class="fas fa-child dashboard-icon"></i>
               <h2>Children</h2>
-              <p >
+              <p>
                 {% if children %}
-                  You have {{ children|length }} child/children:<br>
-                  {% for child in children %}
-                    <strong>{{ child.name|capfirst|linebreaks }}</strong>{% if not forloop.last %} {% endif %}
-                  {% endfor %}
+                  <ul class="list-unstyled">
+                    {% for child in children %}
+                      <li class="d-flex justify-content-between align-items-center mb-2">
+                        <span><strong>{{ child.name|capfirst }}</strong></span>
+                  
+                        <div class="btn-group">
+                          <a href="{% url 'dashboard:edit_child' child.id %}"
+                             class="btn btn-light btn-sm">
+                            <i class="fas fa-edit"></i>
+                          </a>
+                  
+                          <a href="{% url 'dashboard:delete_child' child.id %}"
+                             class="btn btn-light btn-sm">
+                            <i class="fas fa-trash"></i>
+                          </a>
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                  
                 {% else %}
                   Add your first child to get started.
                 {% endif %}
               </p>
-            </div>
             <div>
-              <button class="dashboard-btn btn-white-pill" onclick="window.location.href='{% url 'dashboard:add_child' %}'">
+              <button class="dashboard-btn btn-white-pill text-center" onclick="window.location.href='{% url 'dashboard:add_child' %}'">
                 <i class="fas fa-user-plus me-1"></i>
                 Add Child
               </button>
