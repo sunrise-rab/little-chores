@@ -7,4 +7,17 @@ function showMore(groupId, button) {
   
     button.remove();
   }
+
+  // Refresh chores when child changes
+  document.addEventListener("DOMContentLoaded", function () {
+    const childSelect = document.querySelector("#id_child");
+    const filterForm = document.querySelector("#childFilterForm");
+
+    if (childSelect && filterForm) {
+      childSelect.addEventListener("change", function () {
+        filterForm.submit();  // ✅ reload page with correct chores for chosen child
+      });
+    }
+  });
+
   

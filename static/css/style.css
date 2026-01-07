@@ -262,7 +262,9 @@ padding: 1rem;
   /* Buttons styles */
   form button,
   form input[type="submit"],
-  .add-child a  {
+  .add-child a,
+  .edit-child a,
+  .delete-child a{
     background-color: var(--brand-purple);
     border: none;
     color: var(--snow-white);
@@ -275,7 +277,9 @@ padding: 1rem;
   
   form button:hover,
   form input[type="submit"]:hover,
-  .add-child a:hover{
+  .add-child a:hover,
+  .edit-child a:hover,
+  .delete-child a:hover{
     background-color: var(--soft-yellow);
     color: var(--charcoal-text);
     transition: 0.2s ease-in-out;

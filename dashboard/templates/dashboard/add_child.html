@@ -12,7 +12,7 @@
         <form  id ="ChildForm" method="post">
           {{ child_form | crispy }}
           {% csrf_token %}
-          <button type="submit" class="">
+          <button type="submit">
             Save
           </button>
           <a href="{% url 'dashboard:dashboard' %} ">

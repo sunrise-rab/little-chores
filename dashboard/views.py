@@ -1,19 +1,23 @@
+from tokenize import group
 from django.shortcuts import render,redirect, get_object_or_404
 
 from tasks.models import AGE_GROUP_CHOICES
 from .models import Child
 from .forms import ChildForm
+from tasks.models import Task
+from .forms import AssignChoresForm
+from .models import AssignedTask
 
 # Create your views here.
 def dashboard(request):
     children = Child.objects.filter(parent=request.user)
-
+  
     return render(
         request, 
         "dashboard/dashboard.html", 
         {
         "children": children,
-        
+     
         
         })
 
@@ -70,6 +74,21 @@ def delete_child(request, pk):
         "child": child
     })
 
-     
-   
 
+
+def assign_tasks(request):
+    # Get age_appropriate chores
+    form = AssignChoresForm(request.GET or None, user=request.user)
+
+    if request.method == "POST":
+        form = AssignChoresForm(request.POST, user=request.user)
+        if form.is_valid():
+            child = form.cleaned_data["child"]
+            chores = form.cleaned_data["chores"]
+
+            for task in chores:
+                AssignedTask.objects.get_or_create(child=child, task=task)
+
+            return redirect("dashboard:dashboard")
+
+    return render(request, "dashboard/assign_tasks.html", {"form": form})

@@ -3,6 +3,7 @@ from .views import dashboard
 from .views import add_child
 from .views import edit_child
 from .views import delete_child
+from .views import assign_tasks
 
 
 app_name = "dashboard"
@@ -11,4 +12,5 @@ urlpatterns = [
     path("add-child/", add_child, name="add_child"),
     path("edit-child/<int:pk>/", edit_child, name="edit_child"),
     path("delete-child/<int:pk>/", delete_child, name="delete_child"),
+    path("assign_tasks/", assign_tasks, name="assign_tasks"),
 ]
