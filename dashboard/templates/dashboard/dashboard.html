@@ -60,8 +60,8 @@
           <div class="dashboard-card card-chores">
             <div>
               <i class="fas fa-broom dashboard-icon"></i>
-              <h2>Chores</h2>
-              <p>Choose age-appropriate tasks, set rewards, and help your child build good habits.</p>
+              <h2>Asign Chores</h2>
+              <p>Choose a child and a list of age-appropriate chores will appear. Tick the chores you want, then click Assign to add them to that child. Please press Assign chores to begin</p>
             </div>
             <div>
               <button class="dashboard-btn btn-white-pill" onclick="window.location.href='{% url 'dashboard:assign_tasks' %}'">
@@ -82,19 +82,11 @@
               <h2>To do & Completed</h2>
               <p>Tick off chores, keep track of what’s done, and see how many stickers they’ve earned.</p>
             </div>
-            <div class="dashboard-actions">
-              <button class="dashboard-btn btn-white-pill">
+            <div>
+              <a class="dashboard-btn btn-white-pill" href="{% url 'dashboard:todo_completed' %}">
                 <i class="fas fa-check me-1"></i>
-                Mark Completed
-              </button>
-              <button class="dashboard-btn btn-white-pill">
-                <i class="fas fa-edit me-1"></i>
-                Edit
-              </button>
-              <button class="dashboard-btn btn-white-pill">
-                <i class="fas fa-trash-alt me-1"></i>
-                Delete
-              </button>
+                To do / Completed
+              </a>
             </div>
           </div>
         </div>
@@ -108,12 +100,6 @@
                 “You are a star, and you really can do it!”  
                 Use this space to agree rewards together – movie night, extra story time, or a special treat.
               </p>
-            </div>
-            <div>
-              <button class="dashboard-btn btn-purple-pill">
-                <i class="fas fa-gift me-1"></i>
-                View Rewards
-              </button>
             </div>
           </div>
         </div>
