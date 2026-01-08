@@ -15,7 +15,7 @@ function showMore(groupId, button) {
 
     if (childSelect && filterForm) {
       childSelect.addEventListener("change", function () {
-        filterForm.submit();  // ✅ reload page with correct chores for chosen child
+        filterForm.submit();  
       });
     }
   });

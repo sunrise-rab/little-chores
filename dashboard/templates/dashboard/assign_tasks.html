@@ -23,9 +23,9 @@
 
           {{ form.chores|as_crispy_field }}
 
-          <div class="d-flex justify-content-between mt-4">
-            <a href="{% url 'dashboard:dashboard' %}" class="btn btn-secondary">Cancel</a>
-            <button type="submit" class="btn btn-primary">Assign</button>
+          <div class=" cancel d-flex justify-content-between mt-4">
+            <a href="{% url 'dashboard:dashboard' %}">Cancel</a>
+            <button type="submit">Assign</button>
           </div>
         </form>
       </div>

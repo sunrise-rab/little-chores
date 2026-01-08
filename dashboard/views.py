@@ -1,12 +1,13 @@
 from tokenize import group
 from django.shortcuts import render,redirect, get_object_or_404
-
+from django.utils import timezone
 from tasks.models import AGE_GROUP_CHOICES
 from .models import Child
 from .forms import ChildForm
 from tasks.models import Task
 from .forms import AssignChoresForm
 from .models import AssignedTask
+from django.db.models import F 
 
 # Create your views here.
 def dashboard(request):
@@ -92,3 +93,42 @@ def assign_tasks(request):
             return redirect("dashboard:dashboard")
 
     return render(request, "dashboard/assign_tasks.html", {"form": form})
+   
+def todo_completed(request):
+    todo_tasks = AssignedTask.objects.filter(
+    child__parent=request.user,
+    status="todo"
+    ).select_related("child", "task")
+
+    done_tasks = AssignedTask.objects.filter(
+        child__parent=request.user,
+        status="done"
+    ).select_related("child", "task")
+
+    return render(request, "dashboard/todo_completed.html", {
+        "todo_tasks": todo_tasks,
+        "done_tasks": done_tasks,
+        })
+
+
+def mark_done(request):
+    if request.method != "POST":
+        return redirect("dashboard:todo_completed")
+
+    check_id = request.POST.getlist("task_ids")  
+
+    # Only update tasks that belong to THIS parent and are still todo
+    queryset = AssignedTask.objects.filter(
+        id__in=check_id,
+        child__parent=request.user,
+        status="todo"
+    )
+
+    # Mark as done + set completed time + add 1 sticker each
+    queryset.update(
+        status="done",
+        completed_at=timezone.now(),
+        stickers_awarded=F("stickers_awarded") + 1
+    )
+
+    return redirect("dashboard:todo_completed")

@@ -28,11 +28,11 @@ class AssignChoresForm(forms.Form):
     def __init__(self, *args, **kwargs):
         user = kwargs.pop("user", None)
         super().__init__(*args, **kwargs)
+        # Get all the children that belong to the loged in parent
+        children_list = Child.objects.filter(parent=user)
+        self.fields["child"].queryset = children_list
 
-        children_qs = Child.objects.filter(parent=user)
-        self.fields["child"].queryset = children_qs
-
-        # choose selected child (from GET/POST), otherwise first child
+        # choose selected child the dropdown box, otherwise first child
         child_id = self.data.get("child")
         selected_child = None
 
@@ -42,7 +42,7 @@ class AssignChoresForm(forms.Form):
             except Child.DoesNotExist:
                 selected_child = None
         else:
-            selected_child = children_qs.first()
+            selected_child = children_list.first()
             if selected_child:
                 self.initial["child"] = selected_child
 

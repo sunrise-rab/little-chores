@@ -55,6 +55,10 @@ body {
     font-weight: bold;
     
 }
+.navbar-dark .navbar-toggler {
+  color:var(--snow-white);
+  border-color:var(--snow-white)
+}
 
 .small-logo {
   font-size: 1.5rem;
@@ -264,7 +268,8 @@ padding: 1rem;
   form input[type="submit"],
   .add-child a,
   .edit-child a,
-  .delete-child a{
+  .delete-child a,
+  .cancel a{
     background-color: var(--brand-purple);
     border: none;
     color: var(--snow-white);
@@ -279,10 +284,21 @@ padding: 1rem;
   form input[type="submit"]:hover,
   .add-child a:hover,
   .edit-child a:hover,
-  .delete-child a:hover{
+  .delete-child a:hover,
+  .cancel a:hover{
     background-color: var(--soft-yellow);
     color: var(--charcoal-text);
     transition: 0.2s ease-in-out;
   }
+
+.dashboard-btn {
+  text-decoration: none;
+} 
+.list-group-item span {
+  font-size: 0.9rem;
+}
+.list-group-item  i{
+  color: var(--soft-yellow);
+}
 
   
