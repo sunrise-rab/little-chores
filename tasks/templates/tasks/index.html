@@ -3,48 +3,51 @@
 {% block content %}
 <div class="container py-4">
   <div class="row">
-    
+
     <div class="col">
-    </div>
-    <div class="col">
+      <h1 class="task-title">Welcome to Little Chores</h1>
+
+      <p class="home-intro">
+        Little Chores helps children learn responsibility in a fun and positive way.
+        Through age-appropriate tasks and star rewards, children build confidence,
+        independence, and important life skills while parents stay involved and supportive.
+      </p>
     </div>
 
     <div class="col-12">
-
       {% regroup task_list by age_group as grouped_tasks %}
 
       {% for group in grouped_tasks %}
-        <h1 class="task-title">
-          {% if group.grouper == 1 %}Appropriate chores for ages 3–5{% endif %}
-          {% if group.grouper == 2 %}Appropriate chores for ages 6–8{% endif %}
-          {% if group.grouper == 3 %}Appropriate chores for ages 9–11{% endif %}
-          {% if group.grouper == 4 %}Appropriate chores for ages 12+{% endif %}
-        </h1>
+      <h1 class="task-title">
+        {% if group.grouper == 1 %}Appropriate chores for ages 3–5{% endif %}
+        {% if group.grouper == 2 %}Appropriate chores for ages 6–8{% endif %}
+        {% if group.grouper == 3 %}Appropriate chores for ages 9–11{% endif %}
+        {% if group.grouper == 4 %}Appropriate chores for ages 12+{% endif %}
+      </h1>
 
-        <div id="task-list" class="row task-list" >
-          {% for task in group.list %}
-            <div class="col-md-4 mb-4 {% if forloop.counter > 3 %}d-none extra-{{ group.grouper }}{% endif %}">
-              <div class="card h-100">
-                <div class="card-body">
-                  <h4 class="card-title">{{ task.title }}</h4>
-                  <i class="fas fa-broom chore-icon"></i><span class="title">How to do this?</span> 
-                  <p class="description">{{ task.description }}</p>
-                  <br>
-                  <i class="fas fa-lightbulb learn-icon"></i><span class="title">What will I learn?</span> 
-                  <p class="benefits">{{ task.benefits }}</p>
-                </div>
-              </div>
+      <div id="task-list" class="row task-list">
+        {% for task in group.list %}
+        <div class="col-md-4 mb-4 {% if forloop.counter > 3 %}d-none extra-{{ group.grouper }}{% endif %}">
+          <div class="card h-100">
+            <div class="card-body">
+              <h4 class="card-title">{{ task.title }}</h4>
+              <i class="fas fa-broom chore-icon"></i><span class="title">How to do this?</span>
+              <p class="description">{{ task.description }}</p>
+              <br>
+              <i class="fas fa-lightbulb learn-icon"></i><span class="title">What will I learn?</span>
+              <p class="benefits">{{ task.benefits }}</p>
             </div>
-          {% endfor %}
+          </div>
         </div>
+        {% endfor %}
+      </div>
 
-        {% if group.list|length > 3 %}
-        <div class="col-12 more-button">
-        <button class="btn" 
-        onclick="showMore({{ group.grouper }}, this)">
+      {% if group.list|length > 3 %}
+      <div class="col-12 more-button">
+        <button class="btn" onclick="showMore({{ group.grouper }}, this)">
           See more
         </button>
-        </div>
+      </div>
       {% endif %}
 
       {% endfor %}

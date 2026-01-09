@@ -34,7 +34,7 @@ def dashboard(request):
             total_stars=Coalesce(
                 Sum(
                     "assigned_tasks__stickers_awarded",
-                    filter=Q(assigned_tasks__status="Completed"),
+                    filter=Q(assigned_tasks__status="done"),
                 ),
                 0,
             )

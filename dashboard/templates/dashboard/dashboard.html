@@ -103,8 +103,8 @@
               <ul class="list-unstyled mt-3">
                 {% for child in children %}
                   <li class="mb-2">
-                    <strong>{{ child.name|capfirst }}</strong>:
-                    <small><i class="fas fa-star "></i></small>{{ chils.total_stars}}
+                    <strong>{{ child.name|capfirst }} have </strong>:
+                   {{ child.total_stars}} <small><i class="fas fa-star "></i></small>
                   </li>
                 {% endfor %}
               </ul>

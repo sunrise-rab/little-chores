@@ -79,6 +79,12 @@ body {
 }
 
 /* Task section heading*/
+
+.home-intro {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
 .task-title {
   color:var(--brand-purple);       
   margin: 2rem 0 1rem;

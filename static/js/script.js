@@ -1,3 +1,4 @@
+// Show more  tasks in home page
 function showMore(groupId, button) {
     const extraItems = document.querySelectorAll('.extra-' + groupId);
   
