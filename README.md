@@ -87,11 +87,11 @@ My website is responsive to different layouts depending on the size of the viewp
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
 | **User Authentication**      | Users can register, log in, and log out securely. Only logged-in parents can manage children and chores.               | ![Screenshot](docs/features/login.png)           |
 | **Add Child**                | Parents can add children by entering the child’s name and date of birth. Each child is linked to the logged-in parent. | ![Screenshot](docs/features/add_child.png)       |
-| **Children Management**      | The dashboard displays a list of the parent’s children with options to edit or delete them.                            | ![Screenshot](docs/features/edit_child.png)   |
-| **Children Management**      | The dashboard displays a list of the parent’s children with options to edit or delete them.                            | ![Screenshot](docs/features/delete_child.png)   |
-| **Assign Chores**            | Parents can select a child and assign only age-appropriate chores using checkboxes.                                    | ![Screenshot](docs/features/assign__chores.png)   |
-| **To Do & Completed View**   | Assigned chores are shown in a To Do list and move to Completed when marked as done.                                   | ![Screenshot](docs/features/assign_chores.png)  |
-| **Mark Chores as Complete**  | Parents can mark one or more chores as completed using checkboxes.                                                     | ![Screenshot](docs/features/assign_chores.png)   |
+| **Children Management**      | The dashboard displays a list of the parent’s children with options to edit or delete them.                            | ![Screenshot](docs/features/dashboard.png)   |
+| **Children Management(delete child)**      | The dashboard displays a list of the parent’s children with options to edit or delete them.                            | ![Screenshot](docs/features/delete_child.png)   |
+| **Children Management(edit child)**      | The dashboard displays a list of the parent’s children with options to edit or delete them.                            | ![Screenshot](docs/features/edit_child.png)   |
+| **Assign Chores**            | Parents can select a child and assign only age-appropriate chores using checkboxes.                                    | ![Screenshot](docs/features/assign_chores.png)   |
+| **Mark Chores as Complete**  | Parents can mark one or more chores as completed using checkboxes.                                                     | ![Screenshot](docs/features/todo_completed.png)   |
 | **Delete Assigned Chores**   | Assigned chores can be deleted from the To Do list if added by mistake.                                                | ![Screenshot](docs/features/delete_chore.png)    |
 | **Daily Chore Tracking**     | Parents can track which chores are completed and which remain pending.                                                 | ![Screenshot](docs/features/todo_completed.png)  |
 | **Responsive Dashboard**     | The dashboard provides clear cards for Children, Assign Chores, To Do & Completed, and Rewards.                        | ![Screenshot](docs/features/dashboard.png)       |
@@ -99,6 +99,19 @@ My website is responsive to different layouts depending on the size of the viewp
 
 
 ## Tests
+### User story
+| User Story                                                                           | Acceptance Criteria (What “Done” Looks Like)                                                    | Tested? | Result            | Notes / Evidence                                                   |
+| ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ------- | ----------------- | ------------------------------------------------------------------ |
+| **As a Parent/Guardian, I want to manage children and their tasks**                  | Parent can add/edit/delete children and view assigned chores per child                          | Yes   |  Pass            | Add Child form works; Edit/Delete child available from dashboard   |
+| **As a Parent/Guardian, I want to choose tasks from an approved task library**       | Parent can view chore library (age-group tasks) and assign chores to a selected child           |  Yes   | Pass            | Task library page displays chores; Assign chores form works        |
+| **As a Parent/Guardian, I want to suggest new tasks for admin approval**             | Parent can submit a suggested task; admin can approve/reject; approved tasks appear in library  |  No    | Not Implemented | Feature not built in this version (planned for future iteration)   |
+| **As a Parent/Guardian, I want to mark tasks as completed and view rewards**         | Parent can mark chores as completed; completed chores move to “Done”; rewards/stickers increase | Yes   | Pass            | Todo/Completed page updates status; stickers awarded on completion |
+| **As a Child, I want to view tasks in clear, child-friendly language**               | Tasks show simple title + description + “what I will learn”                                     |  Yes   | Pass            | Task cards include child-friendly descriptions and benefits        |
+| **As a Child, I want to receive stickers and positive feedback for completed tasks** | Completing a chore awards stickers and shows encouraging success messages                       |  Yes   | Pass            | Stickers are awarded; success message shown after marking done     |
+| **As an Admin, I want to manage users via Django admin**                             | Admin can manage users, children, tasks, assigned tasks using Django admin panel                | Yes   | Pass            | Admin panel enabled for user and model management                  |
+| **As an Admin, I want to review/approve parent-submitted task suggestions**          | Admin can view suggestions and approve/reject them                                              |  No    | Not Implemented | Depends on parent “suggest task” feature (not built yet)           |
+| **As an Admin, I want to control which tasks appear in the public task library**     | Only tasks marked active/approved appear in library                                             | Yes   |  Pass            | Library filters tasks by `status=1` in TaskList view               |
+
 ### HTML validation Results
 
 | Page                  | URL / Template                             | Validation Issues                                                                                          | Status      | Notes                                                                                                                     |
