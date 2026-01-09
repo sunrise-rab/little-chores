@@ -23,7 +23,6 @@
           <div class="dashboard-card card-children">
               <i class="fas fa-child dashboard-icon"></i>
               <h2>Children</h2>
-              <p>
                 {% if children %}
                   <ul class="list-unstyled">
                     {% for child in children %}
@@ -48,7 +47,6 @@
                 {% else %}
                   Add your first child to get started.
                 {% endif %}
-              </p>
             <div>
               <button class="dashboard-btn btn-white-pill text-center" onclick="window.location.href='{% url 'dashboard:add_child' %}'">
                 <i class="fas fa-user-plus me-1"></i>
