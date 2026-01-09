@@ -12,12 +12,12 @@ from django.db.models import Sum
 from django.db.models.functions import Coalesce
 from django.db.models import Q
 from django.views.decorators.http import require_POST
-from django.contrib.auth.decorators import login_required
+
 
 
 
 # Create your views here.
-@login_required
+
 def dashboard(request):
     """
     Display the main dashboard for the logged-in parent.
