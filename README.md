@@ -95,7 +95,6 @@ My website is responsive to different layouts depending on the size of the viewp
 | **Delete Assigned Chores**   | Assigned chores can be deleted from the To Do list if added by mistake.                                                | ![Screenshot](docs/features/delete_chore.png)    |
 | **Daily Chore Tracking**     | Parents can track which chores are completed and which remain pending.                                                 | ![Screenshot](docs/features/todo_completed.png)  |
 | **Responsive Dashboard**     | The dashboard provides clear cards for Children, Assign Chores, To Do & Completed, and Rewards.                        | ![Screenshot](docs/features/dashboard.png)       |
-| **Secure Data Access**       | Parents can only view and manage their own children and assigned chores.                                               | ![Screenshot](docs/features/register.png)        |
 
 
 ## Tests
