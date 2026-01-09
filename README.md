@@ -90,8 +90,8 @@ My website is responsive to different layouts depending on the size of the viewp
 | **Children Management**      | The dashboard displays a list of the parent’s children with options to edit or delete them.                            | ![Screenshot](docs/features/edit_child.png)   |
 | **Children Management**      | The dashboard displays a list of the parent’s children with options to edit or delete them.                            | ![Screenshot](docs/features/delete_child.png)   |
 | **Assign Chores**            | Parents can select a child and assign only age-appropriate chores using checkboxes.                                    | ![Screenshot](docs/features/assign__chores.png)   |
-| **To Do & Completed View**   | Assigned chores are shown in a To Do list and move to Completed when marked as done.                                   | ![Screenshot](docs/features/todo-completed.png)  |
-| **Mark Chores as Complete**  | Parents can mark one or more chores as completed using checkboxes.                                                     | ![Screenshot](docs/features/todo_completed.png)   |
+| **To Do & Completed View**   | Assigned chores are shown in a To Do list and move to Completed when marked as done.                                   | ![Screenshot](docs/features/assign_chores.png)  |
+| **Mark Chores as Complete**  | Parents can mark one or more chores as completed using checkboxes.                                                     | ![Screenshot](docs/features/assign_chores.png)   |
 | **Delete Assigned Chores**   | Assigned chores can be deleted from the To Do list if added by mistake.                                                | ![Screenshot](docs/features/delete_chore.png)    |
 | **Daily Chore Tracking**     | Parents can track which chores are completed and which remain pending.                                                 | ![Screenshot](docs/features/todo_completed.png)  |
 | **Responsive Dashboard**     | The dashboard provides clear cards for Children, Assign Chores, To Do & Completed, and Rewards.                        | ![Screenshot](docs/features/dashboard.png)       |
