@@ -96,9 +96,15 @@ My website is responsive to different layouts depending on the size of the viewp
 | **Daily Chore Tracking**     | Parents can track which chores are completed and which remain pending.                                                 | ![Screenshot](docs/features/todo_completed.png)  |
 | **Responsive Dashboard**     | The dashboard provides clear cards for Children, Assign Chores, To Do & Completed, and Rewards.                        | ![Screenshot](docs/features/dashboard.png)       |
 
+### Future Features
+Allow children to log in to their own dashboard to view assigned chores and track progress independently
+Allow parents to create rewards like (screen time, treats) that children can “buy” using earned stars.
+Reset “To Do” chores each day while keeping reward history.
+Full log of completed chores with dates and rewards.
+Allow parents to create their own chores with descriptions and star values.
 
 ## Tests
-### User story
+### User Story
 | User Story                                                                           | Acceptance Criteria (What “Done” Looks Like)                                                    | Tested? | Result            | Notes / Evidence                                                   |
 | ------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ------- | ----------------- | ------------------------------------------------------------------ |
 | **As a Parent/Guardian, I want to manage children and their tasks**                  | Parent can add/edit/delete children and view assigned chores per child                          | Yes   |  Pass            | Add Child form works; Edit/Delete child available from dashboard   |
@@ -122,6 +128,10 @@ My website is responsive to different layouts depending on the size of the viewp
 ### W3C CSS Validator results
 
 ![Screenshot](docs/css-checker.png)
+
+### Wave
+Accessibility testing using the [WAVE](https://wave.webaim.org/) tool identified no critical errors; some contrast and heading structure alerts were noted and documented, but these do not affect usability or core functionality and will be addressed in future iterations
+![Screenshot](docs/wave-test.png)
 
 | **Bug**                                                         | **Cause**                                               | **Fix / Solution**                                                                                   |
 | --------------------------------------------------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
