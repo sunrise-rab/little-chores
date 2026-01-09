@@ -99,7 +99,7 @@ My website is responsive to different layouts depending on the size of the viewp
 
 
 ## Tests
-### HTML validation tests
+### HTML validation Results
 
 | Page                  | URL / Template                             | Validation Issues                                                                                          | Status      | Notes                                                                                                                     |
 | --------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -107,6 +107,9 @@ My website is responsive to different layouts depending on the size of the viewp
 | **To-Do / Completed** | ![Screenshot](docs/todo-html-checker.png) | • `<div>` used inside `<label>` (invalid HTML structure)<br>• Trailing slash on void elements              | Not fixed | Issue caused by form layout structure. Left unchanged to preserve functionality and styling. Planned for future refactor. |
 | **Dashboard**         | ![Screenshot](docs/dachboard-html-checker.png)         | • Initial duplicate IDs<br>• Heading hierarchy issues                                                      |  Fixed     | Duplicate IDs removed and heading structure corrected. Page now passes validation checks where applicable.                |
 
+### W3C CSS Validator results
+
+![Screenshot](docs/css-checker.png)
 
 | **Bug**                                                         | **Cause**                                               | **Fix / Solution**                                                                                   |
 | --------------------------------------------------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -137,7 +140,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 - Enable automatic deploys.
 - Deploy branch.
 
-The live link can be found [here](https://little-chores-d53d2ee92787.herokuapp.com/dashboard/delete-child/11/).
+The live link can be found [here](https://little-chores-d53d2ee92787.herokuapp.com/).
 
 
 
