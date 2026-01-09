@@ -1,26 +1,48 @@
-from tokenize import group
 from django.shortcuts import render,redirect, get_object_or_404
 from django.utils import timezone
 from tasks.models import AGE_GROUP_CHOICES
+from django.contrib import messages
 from .models import Child
 from .forms import ChildForm
 from tasks.models import Task
 from .forms import AssignChoresForm
 from .models import AssignedTask
 from django.db.models import F 
+from django.db.models import Sum
+from django.db.models.functions import Coalesce
+from django.db.models import Q
+from django.views.decorators.http import require_POST
+
+
 
 # Create your views here.
 def dashboard(request):
-    children = Child.objects.filter(parent=request.user)
-  
-    return render(
-        request, 
-        "dashboard/dashboard.html", 
-        {
-        "children": children,
-     
-        
-        })
+    """
+    Display the main dashboard for the logged-in parent.
+   
+    **Context**
+   ``children``
+    A queryset of :model:`dashboard.Child` objects belonging to the logged-in parent.
+
+    **Template:**
+    :template:`dashboard/dashboard.html`
+    """  
+    children = (
+        Child.objects
+        .filter(parent=request.user)
+        .annotate(
+            total_stars=Coalesce(
+                Sum(
+                    "assigned_tasks__stickers_awarded",
+                    filter=Q(assigned_tasks__status="Completed"),
+                ),
+                0,
+            )
+        )
+    )
+
+    return render(request, "dashboard/dashboard.html", {"children": children})
+    
 
 def add_child(request):
     if request.method == "POST":
@@ -29,9 +51,14 @@ def add_child(request):
             child = child_form.save(commit=False)
             child.parent = request.user
             child.save()
+            messages.add_message(
+            request, messages.SUCCESS,
+            'A child  has been added successfully '
+          )
             return redirect("dashboard:dashboard")
     else:
         child_form = ChildForm()
+        
 
     return render(
         request, 
@@ -50,6 +77,10 @@ def edit_child(request, pk):
         form = ChildForm(request.POST, instance=child)
         if form.is_valid():
             form.save()
+            messages.add_message(
+            request, messages.SUCCESS,
+           'Child details has been edited successfully '
+    )
             return redirect("dashboard:dashboard")
     else:
         form = ChildForm(instance=child)
@@ -69,6 +100,10 @@ def delete_child(request, pk):
 
     if request.method == "POST":
         child.delete()
+        messages.add_message(
+        request, messages.SUCCESS,
+        'Child has been deleted successfully ')
+        
         return redirect("dashboard:dashboard")
 
     return render(request, "dashboard/delete_child.html", {
@@ -88,13 +123,34 @@ def assign_tasks(request):
             chores = form.cleaned_data["chores"]
 
             for task in chores:
-                AssignedTask.objects.get_or_create(child=child, task=task)
-
+                AssignedTask.objects.create(child=child, task=task)
+            messages.add_message(
+            request, messages.SUCCESS,
+           'Chores has been assigned successefully ')
             return redirect("dashboard:dashboard")
 
     return render(request, "dashboard/assign_tasks.html", {"form": form})
    
 def todo_completed(request):
+    """
+    Display assigned chores for the logged-in parent, grouped by status.
+
+    This view separates chores into two sections:
+    - To do
+    - Completed
+
+    **Context**
+
+    ``todo_tasks``
+    A queryset of :model:`dashboard.AssignedTask` objects with status ``"todo"``.
+
+    ``done_tasks``
+    A queryset of :model:`dashboard.AssignedTask` objects with status ``"done"``.
+
+    **Template:**
+
+    :template:`dashboard/todo_completed.html`
+    """
     todo_tasks = AssignedTask.objects.filter(
     child__parent=request.user,
     status="todo"
@@ -112,6 +168,22 @@ def todo_completed(request):
 
 
 def mark_done(request):
+    """
+    Mark selected assigned chores as completed.
+
+    This view processes a POST request containing selected
+    :model:`dashboard.AssignedTask` IDs. It updates each task by:
+     - Changing the status from ``"todo"`` to ``"done"``
+     - Setting the completion timestamp
+     - Awarding one sticker per completed chore
+
+    Only chores belonging to the logged-in parent can be updated.
+
+    **Template:**
+
+    :template:`dashboard/todo_completed.html`
+    """
+    
     if request.method != "POST":
         return redirect("dashboard:todo_completed")
 
@@ -130,5 +202,25 @@ def mark_done(request):
         completed_at=timezone.now(),
         stickers_awarded=F("stickers_awarded") + 1
     )
+    messages.add_message(
+    request, messages.SUCCESS,
+    'Keep going you are doing a very good job')
+    return redirect("dashboard:todo_completed")
+@require_POST
+def delete_assigned(request):
+    """
+    Delete selected assigned chores.
+    It is used to remove chores that were assigned by mistake.
+    """
+    query = request.POST.getlist("task_ids")
+
+    AssignedTask.objects.filter(
+        id__in=query,
+        child__parent=request.user,
+        status="todo",  
+    ).delete()
+    messages.add_message(
+    request, messages.SUCCESS,
+    'You have successfully deleted the checked assigned chores.')
 
     return redirect("dashboard:todo_completed")

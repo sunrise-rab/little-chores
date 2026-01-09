@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+
+
 {% block content %}
 <div class="container py-4">
   <div id="dashboard-wrapper">
@@ -93,13 +95,24 @@
 
         <div class="col-md-5">
           <div class="dashboard-card card-rewards">
-            <div>
+            <div >
               <i class="fas fa-star dashboard-icon"></i>
               <h2>Rewards</h2>
               <p>
                 “You are a star, and you really can do it!”  
-                Use this space to agree rewards together – movie night, extra story time, or a special treat.
               </p>
+              {% if children %}
+              <ul class="list-unstyled mt-3">
+                {% for child in children %}
+                  <li class="mb-2">
+                    <strong>{{ child.name|capfirst }}</strong>:
+                    <small><i class="fas fa-star "></i></small>{{ chils.total_stars}}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              <p>No children added yet.</p>
+            {% endif %}
             </div>
           </div>
         </div>

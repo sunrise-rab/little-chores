@@ -29,6 +29,7 @@ body, p, button, input, label, textarea {
 body {
   display: flex;
   flex-direction: column;
+  background-color: var(--soft-cream);
 }
 
 .main-lg {
@@ -200,7 +201,10 @@ padding: 1rem;
   .card-rewards .dashboard-icon {
     color: var(--brand-purple);
   }
-
+.feedback-message{
+  background-color: var(--soft-cream);
+  font-weight: bold;
+}
   /* Buttons */
   .dashboard-btn {
     border-radius: 999px;
@@ -300,5 +304,6 @@ padding: 1rem;
 .list-group-item  i{
   color: var(--soft-yellow);
 }
+
 
   

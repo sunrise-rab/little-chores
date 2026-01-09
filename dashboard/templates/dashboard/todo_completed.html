@@ -21,14 +21,20 @@
                     <div class="fw-bold">{{ task.task.title }}</div>
                     <span class="text-muted">Child: {{ task.child.name|capfirst }}</span>
                   </div>
+                
                 </label>
               {% endfor %}
             </div>
 
-            <div class="d-flex justify-content-end mt-3">
-              <button  type="submit">
+            <div class=" cancel d-flex justify-content-between mt-4">
+              <button  type="submit" formaction="{% url 'dashboard:mark_done' %}">
                 Mark as complete
               </button>
+              <button  type="submit" formaction="{% url 'dashboard:delete_assigned' %}">
+                Delete
+              </button>
+
+              <a href="{% url 'dashboard:dashboard'%}"> Finish</a>
             </div>
           {% else %}
             <p class="text-muted mb-0">No chores to do right now.</p>
