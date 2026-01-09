@@ -98,6 +98,48 @@ My website is responsive to different layouts depending on the size of the viewp
 | **Secure Data Access**       | Parents can only view and manage their own children and assigned chores.                                               | ![Screenshot](docs/features/register.png)        |
 
 
+## Tests
+### HTML validation tests
+
+| Page                  | URL / Template                             | Validation Issues                                                                                          | Status      | Notes                                                                                                                     |
+| --------------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Home**              | ![Screenshot](docs/home-html-checker.png)  | • Duplicate `id="task-list"`<br>• Heading level skipped (`h1` → `h4`)<br>• Trailing slash on void elements |  Not fixed | Attempted refactor caused loss of styling on the home page after deployment. Issue documented for future improvement.     |
+| **To-Do / Completed** | ![Screenshot](docs/todo-html-checker.png) | • `<div>` used inside `<label>` (invalid HTML structure)<br>• Trailing slash on void elements              | Not fixed | Issue caused by form layout structure. Left unchanged to preserve functionality and styling. Planned for future refactor. |
+| **Dashboard**         | ![Screenshot](docs/dachboard-html-checker.png)         | • Initial duplicate IDs<br>• Heading hierarchy issues                                                      |  Fixed     | Duplicate IDs removed and heading structure corrected. Page now passes validation checks where applicable.                |
+
+
+| **Bug**                                                         | **Cause**                                               | **Fix / Solution**                                                                                   |
+| --------------------------------------------------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+configured `STATIC_ROOT` and `STATICFILES_STORAGE` |
+| `NameError: name 'date' is not defined`                         | `date` was used without being imported                  | Imported `date` from `datetime`                                                                      |
+| `ImportError: cannot import name 'assign_tasks'`                | Function name mismatch between `views.py` and `urls.py` | Ensured the function name and import matched correctly                                               |
+| `TemplateDoesNotExist` error                                    | Incorrect template path or filename                     | Corrected folder structure and template name                                                         |                                                         |
+| Chores not filtered by child age                                | Chores queryset was not filtered dynamically            | Filtered chores using the selected child’s `age_group()`                                             |
+| Chores not updating when selecting another child                | No refresh logic for form selection                     | Handled using javascript to  refresh queryset                                               |                                             |
+| Duplicate chores appearing in To-Do list                        | Assigned tasks were created without uniqueness checks   | Prevented duplicate assignments per child and task                                                   |
+| Completed chores not adding rewards                             | Stickers not incremented on completion                  | Updated logic to increment `stickers_awarded` when status changed to `done`                          |
+| Rewards not showing total stars                                 | Rewards were not aggregated per child                   | Used `Sum("stickers_awarded")` (This is still not working and I am working on it).                                                     |
+| Mark-as-complete not updating status                            | Status field not updated correctly                      | Set `status="done"` and added `completed_at` timestamp                                               |
+| Assigned chores couldn’t be deleted                             | No delete functionality implemented                     | Added delete logic using selected task IDs                                                           |
+| Styling looked different on Heroku                              | Static files cache and missing collectstatic            | When I change Debug to False the Styles does not load(still working on this)                                                    |
+
+
+
+
+## Deployment
+
+The site was deployed to Heroku. The steps to deploy are as follows:
+
+- After pushing all content to the repository, navigate to Heroku.
+- In the [Heroku Dashboard](https://heroku.com/dashboard), navigate to the Project that you're working on.
+- Click on the 'Deploy' button located near the top left of the page.
+- Deployment method: Github > then select the repository to connect to.
+- Enable automatic deploys.
+- Deploy branch.
+
+The live link can be found [here](https://little-chores-d53d2ee92787.herokuapp.com/dashboard/delete-child/11/).
+
+
 
 
 
