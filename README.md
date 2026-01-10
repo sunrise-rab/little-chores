@@ -3,7 +3,34 @@
 Little Chores is a child-friendly task and reward web application designed to help parents encourage positive habits through age-appropriate chores.
 The application supports parents in managing tasks for their children while motivating children through positive reinforcement using stickers and encouraging feedback.
 
+## Contents
+- [Little-chores](#little-chores)
+  * [Project Goals](#project-goals)
+  * [User Roles](#user-roles)
+  * [Wireframes](#wireframes)
+  * [Design Choices](#design-choices)
+    + [Typography](#typography)
+    + [Colour Palette](#colour-palette)
+    + [Images](#images)
+    + [Responsiveness](#responsiveness)
+    + [Case Diagram](#case-diagram)
+    + [Database schema](#database-schema)
+  * [Features](#features)
+    + [Existing Features](#existing-features)
+    + [Future Features](#future-features)
+  * [Tests](#tests)
+    + [User Story](#user-story)
+    + [HTML validation Results](#html-validation-results)
+    + [W3C CSS Validator results](#w3c-css-validator-results)
+    + [Wave](#wave)
+  * [Deployment](#deployment)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## Project Goals
+
+Little Chores was inspired by my earlier project Bond. While researching child-friendly printables, I came across several chore charts and reward trackers. That made me realise how useful a digital version could be for families. I decided to create an application that keeps the simplicity of a chore chart but adds features like assigning tasks by age group, marking chores as completed, and rewarding children with stickers and positive feedback.
 
 - The application is designed to help parents understand the importance of involving children in everyday chores in an age-appropriate way, while learning about the benefits these activities have on children’s development.
 - It also allows parents to safely suggest new tasks without immediate public visibility, helping to keep parents engaged in their children’s physical learning journey.
@@ -35,6 +62,9 @@ As an Admin, I want to:
 
 Low-fidelity, hand-drawn wireframes were created during the planning phase to map out: Home page layout, parent dashboard, task management flow, sticker reward views and mobile adaptations.
 Wireframes were intentionally kept low-fidelity to focus on structure and user flow rather than visual styling.
+![Desktop Home](docs/desktop-home.png)
+![Desktop Dashboard](docs/desktop-dashboard.png)
+![Phone](docs/phone-wireframe.png)
 
 ## Design Choices
 ### Typography
@@ -92,7 +122,7 @@ My website is responsive to different layouts depending on the size of the viewp
 | **Children Management(edit child)**      | The dashboard displays a list of the parent’s children with options to edit or delete them.                            | ![Screenshot](docs/features/edit_child.png)   |
 | **Assign Chores**            | Parents can select a child and assign only age-appropriate chores using checkboxes.                                    | ![Screenshot](docs/features/assign_chores.png)   |
 | **Mark Chores as Complete**  | Parents can mark one or more chores as completed using checkboxes.                                                     | ![Screenshot](docs/features/todo_completed.png)   |
-| **Delete Assigned Chores**   | Assigned chores can be deleted from the To Do list if added by mistake.                                                | ![Screenshot](docs/features/delete_chore.png)    |
+| **Delete Assigned Chores**   | Assigned chores can be deleted from the To Do list if added by mistake.                                                | ![Screenshot](docs/features/delete-assign-chores.png)    |
 | **Daily Chore Tracking**     | Parents can track which chores are completed and which remain pending.                                                 | ![Screenshot](docs/features/todo_completed.png)  |
 | **Responsive Dashboard**     | The dashboard provides clear cards for Children, Assign Chores, To Do & Completed, and Rewards.                        | ![Screenshot](docs/features/dashboard.png)       |
 
@@ -129,6 +159,10 @@ Allow parents to create their own chores with descriptions and star values.
 
 ![Screenshot](docs/css-checker.png)
 
+### JavaScript
+I have used the recommended JShint Validator to validate all of my JS files.
+![Screenshot](docs/js-test.png)
+
 ### Wave
 Accessibility testing using the [WAVE](https://wave.webaim.org/) tool identified no critical errors; some contrast and heading structure alerts were noted and documented, but these do not affect usability or core functionality and will be addressed in future iterations
 ![Screenshot](docs/wave-test.png)
@@ -143,7 +177,7 @@ configured `STATIC_ROOT` and `STATICFILES_STORAGE` |
 | Chores not updating when selecting another child                | No refresh logic for form selection                     | Handled using javascript to  refresh queryset                                               |                                             |
 | Duplicate chores appearing in To-Do list                        | Assigned tasks were created without uniqueness checks   | Prevented duplicate assignments per child and task                                                   |
 | Completed chores not adding rewards                             | Stickers not incremented on completion                  | Updated logic to increment `stickers_awarded` when status changed to `done`                          |
-| Rewards not showing total stars                                 | Rewards were not aggregated per child                   | Used `Sum("stickers_awarded")` (This is still not working and I am working on it).                                                     |
+| Rewards not showing total stars                                 | Rewards were not aggregated per child                   | Used `Sum("stickers_awarded")`.                                                     |
 | Mark-as-complete not updating status                            | Status field not updated correctly                      | Set `status="done"` and added `completed_at` timestamp                                               |
 | Assigned chores couldn’t be deleted                             | No delete functionality implemented                     | Added delete logic using selected task IDs                                                           |
 | Styling looked different on Heroku                              | Static files cache and missing collectstatic            | When I change Debug to False the Styles does not load(still working on this)                                                    |
@@ -165,7 +199,17 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 The live link can be found [here](https://little-chores-d53d2ee92787.herokuapp.com/).
 
 
-
+| Source | Purpose | Notes |
+| --- | --- | --- |
+| [Code Institute](https://codeinstitute.net) | Main Application | Walkthrough used as a guide to create application. |
+| [Georgina90-x](https://github.com/Georgina90-x/Final-Project-3/tree/main) | README and TESTING| Used as a template for README and TESTING 
+| [Github](https://www.github.com) | Repository | Used to store work in repository. |
+| [Gitpod](https://www.gitpod.io) | Code Creation | Used to develop and write the application. |
+| [Heroku](https://www.heroku.com) | Deployment | Used to deploy the application. |
+| [PostgreSQL](https://www.postgresql.org/) | Database | Used database to store, add, edit and update data. |
+| [ChatGPT](https://chatgpt.com/) | Bugs, Text content|was used as a learning and support tool to help explain errors, clarify Django concepts, and assist with debugging during development.|
+| [Udacity](https://www.udacity.com/blog/2021/03/creating-an-html-404-error-web-page.html) | 404 Page | Used to create an Error 404 page. |
+| [Diagrams](https://app.diagrams.net/) | README | Used to create a Use Case & Database Schema Diagram. |
 
 
 
