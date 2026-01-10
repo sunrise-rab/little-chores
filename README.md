@@ -3,6 +3,7 @@
 Little Chores is a child-friendly task and reward web application designed to help parents encourage positive habits through age-appropriate chores.
 The application supports parents in managing tasks for their children while motivating children through positive reinforcement using stickers and encouraging feedback.
 
+![Little chores](docs/responsive.png)
 ## Contents
 - [Little-chores](#little-chores)
   * [Project Goals](#project-goals)
