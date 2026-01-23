@@ -208,8 +208,7 @@ The live link can be found [here](https://little-chores-d53d2ee92787.herokuapp.c
 | [Gitpod](https://www.gitpod.io) | Code Creation | Used to develop and write the application. |
 | [Heroku](https://www.heroku.com) | Deployment | Used to deploy the application. |
 | [PostgreSQL](https://www.postgresql.org/) | Database | Used database to store, add, edit and update data. |
-| [ChatGPT](https://chatgpt.com/) | Bugs, Text content|was used as a learning and support tool to help explain errors, clarify Django concepts, and assist with debugging during development.|
-| [Udacity](https://www.udacity.com/blog/2021/03/creating-an-html-404-error-web-page.html) | 404 Page | Used to create an Error 404 page. |
+| [ChatGPT](https://chatgpt.com/) | Bugs, Text content|was used as a learning and support tool to help explain errors, clarify Django concepts, and assist with debugging during development.| |
 | [Diagrams](https://app.diagrams.net/) | README | Used to create a Use Case & Database Schema Diagram. |
 
 
