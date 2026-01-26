@@ -171,7 +171,6 @@ Accessibility testing using the [WAVE](https://wave.webaim.org/) tool identified
 
 | **Bug**                                                         | **Cause**                                               | **Fix / Solution**                                                                                   |
 | --------------------------------------------------------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-configured `STATIC_ROOT` and `STATICFILES_STORAGE` |
 | `NameError: name 'date' is not defined`                         | `date` was used without being imported                  | Imported `date` from `datetime`                                                                      |
 | `ImportError: cannot import name 'assign_tasks'`                | Function name mismatch between `views.py` and `urls.py` | Ensured the function name and import matched correctly                                               |
 | `TemplateDoesNotExist` error                                    | Incorrect template path or filename                     | Corrected folder structure and template name                                                         |                                                         |
