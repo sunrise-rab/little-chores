@@ -24,6 +24,7 @@ The application supports parents in managing tasks for their children while moti
     + [HTML validation Results](#html-validation-results)
     + [W3C CSS Validator results](#w3c-css-validator-results)
     + [Wave](#wave)
+  * [Technologies Used](#technologies-used)
   * [Deployment](#deployment)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
@@ -183,7 +184,24 @@ configured `STATIC_ROOT` and `STATICFILES_STORAGE` |
 | Assigned chores couldn’t be deleted                             | No delete functionality implemented                     | Added delete logic using selected task IDs                                                           |
 | Styling looked different on Heroku                              | Static files cache and missing collectstatic            | When I change Debug to False the Styles does not load(still working on this)                                                    |
 
+## Technologies Used
 
+- [HTML](https://developer.mozilla.org/en-US/docs/Glossary/HTML5 "HTML")
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS "CSS")
+- [JS](https://developer.mozilla.org/en-US/docs/Web/JavaScript "JS")
+- [Google Fonts](https://fonts.google.com/ "Google Fonts")
+- [GitHub](https://github.com/ "GitHub")
+- [Color Contrast](https://contrastgrid.com/)
+- [Python](https://www.python.org/)
+- [Colour Palette](https://coolors.co/)
+- [W3C HTML Validation Service](https://validator.w3.org/ "W3C HTML")
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/ "W3C CSS")
+- [JSHint](https://jshint.com/ "JSHint")
+- [TOC Generator](https://ecotrust-canada.github.io/markdown-toc/ "TOC Generator")
+- [Am I Responsive](https://ui.dev/amiresponsive "Am I responsive")
+- [Responsive Design Checker](https://responsivedesignchecker.com/ "Responsive Design Checker")
+- [WAVE Accessibility Tool](https://wave.webaim.org/ "WAVE Accessibility Tool")
+- [Color Contrast Accessibility Validator](https://color.a11y.com/ "Color Contrast Accessibility Validator")
 
 
 ## Deployment
@@ -199,6 +217,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 
 The live link can be found [here](https://little-chores-d53d2ee92787.herokuapp.com/).
 
+## Credits
 
 | Source | Purpose | Notes |
 | --- | --- | --- |
